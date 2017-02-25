@@ -1,1 +1,1 @@
-# [].slice()
+# *Lazy* [].slice().
