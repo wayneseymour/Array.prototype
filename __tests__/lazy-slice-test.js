@@ -1,5 +1,7 @@
 import lazySlice from '../lazy-slice';
 
+const eq = a => b => a === b;
+
 describe('Lazy slice', () => {
   test('should be a function', () => {
     expect(typeof lazySlice).toBe('function');
@@ -22,8 +24,13 @@ describe('Lazy slice', () => {
     });
 
     describe('in shallow copying', () => {
+      const result = slice4();
+
+      test('should return false when a "sliced" array is compared to the array it was "sliced" from', () => {
+        expect(eq(arr4, result)()).toBe(false);
+      });
       test('passed no params should return a shallow copy of the array', () => {
-        expect(slice4()).toEqual(['zero', 'one', 'two', 'three']);
+        expect(result).toEqual(['zero', 'one', 'two', 'three']);
       });
     });
   });
