@@ -1,16 +1,18 @@
 {
   "name": "Array.prototype",
   "version": "1.0.0",
-  "description": "A bit more research into the Array obj in JS.",
+  "description": "Just messing with Array.prototype.slice().",
   "main": "slice.js",
   "license": "MIT",
   "scripts": {
     "test": "jest"
   },
   "devDependencies": {
+    "babel-cli": "^6.23.0",
+    "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-polyfill": "^6.23.0",
+    "babel-preset-es2015": "^6.22.0",
+    "babel-preset-react": "^6.23.0",
     "jest": "^19.0.2"
-  },
-  "dependencies": {
-    "babel-polyfill": "^6.23.0"
   }
 }

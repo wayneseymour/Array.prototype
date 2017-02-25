@@ -1,5 +1,6 @@
-const sum = require('../slice');
+import slice from '../slice'
 
-test('adds 1 + 2 to equal 3', () => {
-  expect(sum(1, 2)).toBe(3);
+test('["zero", "one", "two", "three"].slice(1,3) === ["one", "two"]', () => {
+  const slice4 = slice(['zero', 'one', 'two', 'three']);
+  expect(slice4(1, 3)).toEqual(["one", "two"]);
 });
