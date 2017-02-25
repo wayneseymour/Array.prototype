@@ -1,0 +1,16 @@
+{
+  "name": "Array.prototype",
+  "version": "1.0.0",
+  "description": "A bit more research into the Array obj in JS.",
+  "main": "slice.js",
+  "license": "MIT",
+  "scripts": {
+    "test": "jest"
+  },
+  "devDependencies": {
+    "jest": "^19.0.2"
+  },
+  "dependencies": {
+    "babel-polyfill": "^6.23.0"
+  }
+}
