@@ -2,6 +2,24 @@ import lazySlice from '../lazy-slice';
 
 const eq = a => b => a === b;
 
+describe('slice.call()', () => {
+  describe('invoked longhand', () => {
+    test('should convert the arguments array-like object is es5 into a real array', () => {
+      const f = function f() {
+        expect(Array.prototype.slice.call(arguments)).toEqual([1, 2, 3]);
+      };
+      f(1, 2, 3);
+    });
+  });
+  describe('invoked shorthand', () => {
+    test('should convert the arguments array-like object is es5 into a real array', () => {
+      const f = function f() {
+        expect([].slice.call(arguments)).toEqual([1, 2, 3]);
+      };
+      f(1, 2, 3);
+    });
+  });
+});
 describe('Lazy slice', () => {
   test('should be a function', () => {
     expect(typeof lazySlice).toBe('function');
