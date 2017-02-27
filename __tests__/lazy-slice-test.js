@@ -4,7 +4,7 @@ const eq = a => b => a === b;
 
 describe('slice.call()', () => {
   describe('invoked longhand', () => {
-    test('should convert the arguments array-like object is es5 into a real array', () => {
+    test('should convert the arguments array-like object in an es5 function, into a real array', () => {
       const f = function f() {
         expect(Array.prototype.slice.call(arguments)).toEqual([1, 2, 3]);
       };
@@ -12,7 +12,7 @@ describe('slice.call()', () => {
     });
   });
   describe('invoked shorthand', () => {
-    test('should convert the arguments array-like object is es5 into a real array', () => {
+    test('should convert the arguments array-like object in es5 function, into a real array', () => {
       const f = function f() {
         expect([].slice.call(arguments)).toEqual([1, 2, 3]);
       };
