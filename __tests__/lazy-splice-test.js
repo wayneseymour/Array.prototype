@@ -4,53 +4,28 @@
 // array.splice(start)
 // array.splice(start, deleteCount)
 // array.splice(start, deleteCount, item1, item2, ...)
-import lazySplice from '../lazy-splice';
 
-const eq = a => b => a === b;
-
-describe('Lazy splice', () => {
-  test('should be a function', () => {
-    expect(typeof lazySplice).toBe('function');
-  });
-  test('should return a function when invoked', () => {
-    expect(typeof lazySplice()).toEqual('function');
-  });
-  describe('of ["zero", "one", "two", "three"]', () => {
-    describe('mutation by addition of elements', () => {
-      let orig;
-      let arr4;
-      beforeAll(() => {
-        orig = ['zero', 'one', 'two', 'three'];
-        arr4 = lazySplice(orig);
-      });
-
-      describe('passed the params (1, 3, "other")', () => {
-        test('should drop the "other" arg, and return the last three elements beginning at the "one-th" indice', () => {
-          const mutated = arr4(1, 3, 'other');
-          expect(mutated).toEqual(['one', 'two', 'three']);
-        });
-        test('should mutate the original array', () => {
-          expect(orig).toEqual(['zero']);
-        });
-      });
+describe('Array.prototype.splice', () => {
+  describe('should be a function', () => {
+    test('should be a function in longhand', () => {
+      expect(typeof Array.prototype.splice).toBe('function');
     });
-    describe('mutation by removal of elements', () => {
-      let orig;
-      let mutated;
-      let arr4;
-      beforeAll(() => {
-        orig = ['zero', 'one', 'two', 'three'];
-        arr4 = lazySplice(orig);
-        mutated = arr4(1, 3);
-      });
-      describe('passed the params (1, 3)', () => {
-        test('should return the second and third items', () => {
-          expect(mutated).toEqual(['one', 'two', 'three']);
-        });
-        test('should mutate the original array', () => {
-          expect(orig).toEqual(['zero']);
-        });
-      });
+    test('should be a function in shorthand', () => {
+      expect(typeof [].splice).toEqual('function');
+    });
+  });
+  describe('Remove 0 elements from index 2, and insert "drum"', () => {
+    let myFish;
+    let removed;
+    beforeAll(() => {
+      myFish = ['angel', 'clown', 'mandarin', 'sturgeon'];
+      removed = myFish.splice(2, 0, 'drum');
+    });
+    test('should not remove any indices', () => {
+      expect(removed).toEqual([]);
+    });
+    test('should add a new indice to the array', () => {
+      expect(myFish[2]).toBe('drum');
     });
   });
 });
