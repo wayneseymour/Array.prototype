@@ -10,15 +10,4 @@ You only need to check that the ids match.
 const checkUsersValid = valids =>
   submissions => submissions.every(submission => valids.some(valid => submission.id === valid.id));
 
-// // /* test code */
-// (() => {
-//   var goodUsers = [{ id: 1 }, { id: 2 }, { id: 3 }];
-//
-//   var testAllValid = checkUsersValid(goodUsers);
-//
-//   console.log(testAllValid([{ id: 2 }, { id: 1 }]));
-//
-//   console.log(testAllValid([{ id: 2 }, { id: 4 }, { id: 1 }]));
-// })();
-
 export default checkUsersValid;
