@@ -56,6 +56,20 @@ describe('Array.prototype.splice', () => {
       expect(xs).toEqual([1, 2]);
     });
   });
+  describe('Remove 1 element the end of an Array and add two elements', () => {
+    let xs;
+    let removed;
+    beforeAll(() => {
+      xs = [1, 2, 3];
+      removed = xs.splice(xs.length - 1, 1, 4, 5);
+    });
+    test('should have removed the last item', () => {
+      expect(removed).toEqual([3]);
+    });
+    test('should have shortened the array', () => {
+      expect(xs).toEqual([1, 2, 4, 5]);
+    });
+  });
   describe('Remove 1 element from index 2, and insert trumpet', () => {
     let myFish;
     let removed;
